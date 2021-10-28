@@ -1,0 +1,28 @@
+config-css:
+  output: ckanext-feature-image/%(version)s_my.css
+  contents:
+    - config.css
+
+config-js:  
+  output: ckanext-feature-image/%(version)s_my.js
+  extra:
+    preload:
+      - base/main
+      - vendor/vendor
+      - vendor/bootstrap
+      - vendor/jquery
+      - vendor/jquery.ui.core
+  contents:
+    - config.js
+
+promoted-js:  
+  output: ckanext-feature-image/%(version)s_my.js
+  extra:
+    preload:
+      - base/main
+      - vendor/vendor
+      - vendor/bootstrap
+      - vendor/jquery
+      - vendor/jquery.ui.core
+  contents:
+    - promoted.js

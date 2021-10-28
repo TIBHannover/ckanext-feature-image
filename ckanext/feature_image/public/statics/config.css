@@ -1,0 +1,26 @@
+#fileUpload{
+    display: none;
+}
+.fakebtn,
+.fakebtn:hover,
+.fakebtn:active:focus,
+.fakebtn:focus
+{
+    width: 80px;
+    background-color: white ;
+    color: black ;
+    font-size: 14px ;
+    border-color: gray ;
+
+}
+
+#fileNames{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: 34px;
+    margin-left: 2px;
+    padding: 6px 12px;
+    overflow-y: auto;
+    position: relative;
+}

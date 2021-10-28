@@ -1,0 +1,29 @@
+{% extends "admin/config.html" %}
+{% import 'macros/form.html' as macro %}
+
+{% block primary_content_inner %}
+    {% asset 'ckanext-feature-image/config-css' %}
+    {% set action = h.url_for('feature_image.save_config', _external=True) %}
+    <button  type="button" class="btn btn-primary fakebtn" id="UpBtn">{{_('Upload')}}</button><br><br>
+    <form id="feature-image-form" class="" method="post" action='{{action}}' data-module="basic-form" enctype="multipart/form-data">         
+        <div id="fileNameBox">
+            <label for="fileNames">{{_('Feature Image')}}</label>
+            <div class="row" id="fileNames">
+                <div id="fileNameMessage">                    
+                    {{_('You did not choose any image.')}}
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <input type="file" name="image" multiple="multiple" id="fileUpload">
+        {{ macro.input('feature_image_text', 
+            id='feature-image-text', 
+            label=_('Feature Section Text'),                          
+            classes=['control-medium']) 
+        }}
+        <div class="form-actions">            
+            <button type="submit" class="btn btn-primary" name="feature_image_save">{{ _('Save') }}</button>
+        </div>
+    </form>
+{% asset 'ckanext-feature-image/config-js' %}
+{% endblock %}

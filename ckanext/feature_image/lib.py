@@ -12,6 +12,13 @@ class FeatureImageFunctions():
     UPLOAD_DIR = toolkit.config['ckan.storage_path'] + '/storage/uploads/admin/'
 
     def config():
+        context = {'model': model,
+                   'user': toolkit.g.user, 'auth_user_obj': toolkit.g.userobj}
+        try:
+            logic.check_access('sysadmin', context, {})
+        except logic.NotAuthorized:
+            toolkit.abort(403, 'Need to be system administrator to administer')
+            
         return render_template('config.html')
     
 

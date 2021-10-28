@@ -35,10 +35,10 @@ To install ckanext-feature-image:
 
 2. Clone the source and install it on the virtualenv
 
-    git clone https://github.com/TIBHannover/ckanext-feature-image.git
-    cd ckanext-feature-image
-	pip install -r requirements.txt
-    python setup.py develop
+        git clone https://github.com/TIBHannover/ckanext-feature-image.git
+        cd ckanext-feature-image
+        pip install -r requirements.txt
+        python setup.py develop
 
 3. Add `feature_image` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at

@@ -75,8 +75,9 @@ jobs:
 
     - name: Run tests
       continue-on-error: ${{ matrix.experimental }}
-      run: pytest --ckan-ini=test.ini --cov=ckanext.feature_image \
-                  --disable-warnings ckanext/feature_image \
-                  --cov-report xml:/tmp/artifacts/coverage/coverage.xml \
-                  --junit-xml=/tmp/artifacts/junit/results.xml
+      run: |
+        pytest --ckan-ini=test.ini --cov=ckanext.feature_image \
+                --disable-warnings ckanext/feature_image \
+                --cov-report xml:/tmp/artifacts/coverage/coverage.xml \
+                --junit-xml=/tmp/artifacts/junit/results.xml
 

@@ -81,3 +81,8 @@ jobs:
                 --cov-report xml:/tmp/artifacts/coverage/coverage.xml \
                 --junit-xml=/tmp/artifacts/junit/results.xml
 
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+

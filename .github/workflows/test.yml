@@ -81,6 +81,11 @@ jobs:
                 --cov-report xml:/tmp/artifacts/coverage/coverage.xml \
                 --junit-xml=/tmp/artifacts/junit/results.xml
 
+    - name: Install dependencies for Codecov upload
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y curl jq gpg
+
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
       with:

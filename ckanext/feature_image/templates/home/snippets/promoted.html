@@ -2,7 +2,7 @@
 
 
  {% block home_image %}
-    {% asset 'ckanext-feature-image/promoted-js' %}    
+    {% asset 'ckanext-feature-image/promoted-js' %}
     <input type="hidden" id='text_ajax' value="{{h.url_for('feature_image.get_text', _external=True)}}">
     <section class="featured media-overlay hidden-xs">
       <h2 id="feature_text" class="media-heading">{% block home_image_caption %}{% endblock %}</h2>

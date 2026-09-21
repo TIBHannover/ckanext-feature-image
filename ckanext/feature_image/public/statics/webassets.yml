@@ -11,7 +11,6 @@ config-js:
       - vendor/vendor
       - vendor/bootstrap
       - vendor/jquery
-      - vendor/jquery.ui.core
   contents:
     - config.js
 
@@ -23,6 +22,5 @@ promoted-js:
       - vendor/vendor
       - vendor/bootstrap
       - vendor/jquery
-      - vendor/jquery.ui.core
   contents:
     - promoted.js

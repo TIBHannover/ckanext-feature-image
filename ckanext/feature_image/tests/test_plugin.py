@@ -47,7 +47,29 @@ To temporary patch the CKAN configuration for the duration of a test you can use
     def test_some_action():
         pass
 """
+import os
+
+import pytest
+from ckan.exceptions import CkanConfigurationException
+from ckan.plugins import toolkit
+
 import ckanext.feature_image.plugin as plugin
+from ckanext.feature_image.lib import FeatureImageFunctions
 
 def test_plugin():
     pass
+
+
+def test_upload_dir_uses_configured_storage_path(monkeypatch, tmp_path):
+    monkeypatch.setitem(toolkit.config, "ckan.storage_path", str(tmp_path))
+
+    assert FeatureImageFunctions.get_upload_dir() == os.path.join(
+        str(tmp_path), "storage", "uploads", "admin"
+    )
+
+
+def test_upload_dir_reports_missing_storage_path(monkeypatch):
+    monkeypatch.delitem(toolkit.config, "ckan.storage_path", raising=False)
+
+    with pytest.raises(CkanConfigurationException, match="ckan.storage_path"):
+        FeatureImageFunctions.get_upload_dir()
